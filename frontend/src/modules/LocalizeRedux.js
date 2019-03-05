@@ -13,6 +13,7 @@ const initialState = {
 const localize = (state = initialState, action) => {
   switch (action.type) {
     case SET_LANGUAGE:
+      console.log("updating language to " + action.language);
       return {
         ...state,
         language: action.language

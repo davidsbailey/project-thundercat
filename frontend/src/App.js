@@ -121,7 +121,7 @@ class App extends Component {
                 </li>
               </ul>
               <div aria-label={LOCALIZE.ariaLabel.languageToggleBtn} style={styles.languageButton}>
-                <Translation updateLanguageOnPage={this.updateLanguage} />
+                <Translation />
               </div>
             </div>
           </nav>

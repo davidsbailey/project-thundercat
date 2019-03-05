@@ -16,20 +16,20 @@ class Translation extends Component {
   };
 
   static propTypes = {
-    updateLanguageOnPage: PropTypes.func,
+    // Props from Redux
     setLanguage: PropTypes.func
   };
 
   onSetLanguageToFrench = () => {
     LOCALIZE.setLanguage(LANGUAGES.french);
     this.setState({ currentLanguage: LANGUAGES.french });
-    this.props.updateLanguageOnPage();
+    this.props.setLanguage(LANGUAGES.french);
   };
 
   onSetLanguageToEnglish = () => {
     LOCALIZE.setLanguage(LANGUAGES.english);
     this.setState({ currentLanguage: LANGUAGES.english });
-    this.props.updateLanguageOnPage();
+    this.props.setLanguage(LANGUAGES.english);
   };
 
   render() {
