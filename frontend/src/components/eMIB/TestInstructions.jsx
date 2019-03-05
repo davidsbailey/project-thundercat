@@ -25,7 +25,7 @@ class TestInstructions extends Component {
   };
 
   render() {
-    console.log("rendering the test instructions with " + this.props.currentLanguage);
+    const { currentLanguage } = this.props;
     return (
       <div>
         <div>
@@ -57,16 +57,14 @@ class TestInstructions extends Component {
             <p>{LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.title}</p>
             <h4>{LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.part1Title}</h4>
             <p>
-              {LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example
-                .conditionToDisplayImage === LANGUAGES.english && (
+              {currentLanguage === LANGUAGES.english && (
                 <img
                   src={original_email_emib_sample_test_example_en}
                   alt={LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.part1Title}
                   style={styles.testImage}
                 />
               )}
-              {LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example
-                .conditionToDisplayImage === LANGUAGES.french && (
+              {currentLanguage === LANGUAGES.french && (
                 <img
                   src={original_email_emib_sample_test_example_fr}
                   alt={LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.part1Title}
@@ -79,16 +77,14 @@ class TestInstructions extends Component {
             </p>
             <h4>{LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.part2Title}</h4>
             <p>
-              {LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example
-                .conditionToDisplayImage === LANGUAGES.english && (
+              {currentLanguage === LANGUAGES.english && (
                 <img
                   src={option_1_emib_sample_test_example_en}
                   alt={LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.part2Title}
                   style={styles.testImage}
                 />
               )}
-              {LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example
-                .conditionToDisplayImage === LANGUAGES.french && (
+              {currentLanguage === LANGUAGES.french && (
                 <img
                   src={option_1_emib_sample_test_example_fr}
                   alt={LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.part2Title}
@@ -98,16 +94,14 @@ class TestInstructions extends Component {
             </p>
             <h4>{LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.part3Title}</h4>
             <p>
-              {LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example
-                .conditionToDisplayImage === LANGUAGES.english && (
+              {currentLanguage === LANGUAGES.english && (
                 <img
                   src={option_2_emib_sample_test_example_en}
                   alt={LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.part3Title}
                   style={styles.testImage}
                 />
               )}
-              {LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example
-                .conditionToDisplayImage === LANGUAGES.french && (
+              {currentLanguage === LANGUAGES.french && (
                 <img
                   src={option_2_emib_sample_test_example_fr}
                   alt={LOCALIZE.emibTest.howToPage.testInstructions.step2Section.example.part3Title}
