@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import "../../css/lib/aurora.min.css";
 import LOCALIZE from "../../text_resources";
 import "../../css/cat-theme.css";
@@ -17,7 +19,13 @@ const styles = {
 };
 
 class TestInstructions extends Component {
+  static propTypes = {
+    // Props from Redux
+    currentLanguage: PropTypes.string
+  };
+
   render() {
+    console.log("rendering the test instructions with " + this.props.currentLanguage);
     return (
       <div>
         <div>
@@ -114,4 +122,13 @@ class TestInstructions extends Component {
   }
 }
 
-export default TestInstructions;
+const mapStateToProps = (state, ownProps) => {
+  return {
+    currentLanguage: state.localize.language
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(TestInstructions);
