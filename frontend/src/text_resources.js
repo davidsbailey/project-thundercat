@@ -127,7 +127,6 @@ let LOCALIZE = new LocalizedStrings({
             example: {
               title: "Example of an email and ways of responding",
               part1Title: "Original email",
-              conditionToDisplayImage: "en",
               part1Description:
                 "Two options are provided below to demonstrate different methods of responding to the email. As previously mentioned, you can choose one of the two options presented or a combination of the two. Note that the responses provided were not evaluated for how well they demonstrate the competency targeted in the email. They are presented here only to illustrate how to use each of the two ways of responding.",
               part2Title: "Option 1 – Sending an email with Reasons for Action",
@@ -351,7 +350,6 @@ let LOCALIZE = new LocalizedStrings({
             description:
               "Après avoir envoyé un courriel ou ajouté une tâche, vous avez la possibilité d’expliquer votre raisonnement dans la section « Justification des mesures prises ». Vous pouvez expliquer dans cette section pourquoi vous avez pris une ou des mesures pour gérer la situation présentée dans le courriel en question. Remplir la section « Justification des mesures prises » est facultatif. Notez que vous pouvez décider d’ajouter une « Justification des mesures prises » lorsque vous répondez à certains courriels, mais pas pour d’autres. Ceci est également vrai pour les tâches dans la liste de tâches. De plus, si vous ajoutez une « Justification des mesures prises », vous pouvez choisir de justifier certaines des mesures prises tandis que d’autres ne nécessitent pas d’explications supplémentaires.",
             example: {
-              conditionToDisplayImage: "fr",
               title: "Exemple de courriel et façons de répondre",
               part1Title: "Courriel original",
               part1Description:
