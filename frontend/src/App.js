@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 import "./css/lib/aurora.min.css";
 import "./css/cat-theme.css";
@@ -6,7 +8,7 @@ import Status from "./Status";
 import Home from "./Home";
 import Prototype from "./Prototype";
 import Emib from "./components/eMIB/Emib";
-import Translation, { LANGUAGES } from "./components/commons/Translation";
+import Translation from "./components/commons/Translation";
 import LOCALIZE from "./text_resources";
 import psc_header from "./images/psc_header.png";
 
@@ -60,18 +62,9 @@ const isStatusActive = (match, location) => {
 };
 
 class App extends Component {
-  state = {
-    currentLanguage: LANGUAGES.english
-  };
-
-  updateLanguage = () => {
-    if (this.state.currentLanguage === LANGUAGES.english) {
-      this.setState({ currentLanguage: LANGUAGES.french });
-    }
-
-    if (this.state.currentLanguage === LANGUAGES.french) {
-      this.setState({ currentLanguage: LANGUAGES.english });
-    }
+  static propTypes = {
+    // Props from Redux
+    currentLanguage: PropTypes.string
   };
 
   render() {
@@ -135,5 +128,15 @@ class App extends Component {
   }
 }
 
-export default App;
 export { PATH };
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    currentLanguage: state.localize.language
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(App);
