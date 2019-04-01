@@ -42,8 +42,6 @@ const styles = {
   }
 };
 
-let SUBMIT_BTN_DISABLED;
-
 class CreateAccountForm extends Component {
   state = {
     // Ensures no errors are shown on page load
@@ -115,29 +113,6 @@ class CreateAccountForm extends Component {
       : this.setState({ isValidPasswordConfirmation: false });
   };
 
-  areAllFieldsValid = () => {
-    const {
-      isValidFirstName,
-      isValidLastName,
-      isValidEmail,
-      isValidPassword,
-      isValidPasswordConfirmation
-    } = this.state;
-
-    if (
-      isValidFirstName &&
-      isValidLastName &&
-      isValidEmail &&
-      isValidPassword &&
-      isValidPasswordConfirmation
-    ) {
-      //did not use state because of maximum update depth exeeded error
-      SUBMIT_BTN_DISABLED = false;
-    } else {
-      SUBMIT_BTN_DISABLED = true;
-    }
-  };
-
   render() {
     const {
       isFirstLoad,
@@ -157,8 +132,13 @@ class CreateAccountForm extends Component {
     const validFieldClass = "valid-field";
     const invalidFieldClass = "invalid-field";
 
-    //check if all fields are valid
-    this.areAllFieldsValid();
+    const submitButtonEnabled =
+      isValidFirstName &&
+      isValidLastName &&
+      isValidEmail &&
+      isValidPassword &&
+      isValidPasswordConfirmation;
+
     return (
       <div>
         <div>
@@ -319,7 +299,7 @@ class CreateAccountForm extends Component {
                 )}
               </div>
               <button
-                disabled={SUBMIT_BTN_DISABLED}
+                disabled={!submitButtonEnabled}
                 style={styles.loginBtn}
                 className="btn btn-primary"
                 type="submit"
