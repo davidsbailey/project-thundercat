@@ -62,39 +62,39 @@ class CreateAccountForm extends Component {
 
   firstNameValidation = event => {
     const updatedFirstNameValue = event.target.value;
-    const isValide = validateName(updatedFirstNameValue);
+    const isValid = validateName(updatedFirstNameValue);
     this.setState({
       isFirstLoad: false,
       firstNameContent: updatedFirstNameValue,
-      isValidFirstName: isValide
+      isValidFirstName: isValid
     });
   };
 
   lastNameValidation = event => {
     const updatedLastNameValue = event.target.value;
-    const isValide = validateName(updatedLastNameValue);
+    const isValid = validateName(updatedLastNameValue);
     this.setState({
       isFirstLoad: false,
       lastNameContent: updatedLastNameValue,
-      isValidLastName: isValide
+      isValidLastName: isValid
     });
   };
 
   emailValidation = event => {
     const updatedEmailValue = event.target.value;
-    const isValide = validateEmail(updatedEmailValue);
-    this.setState({ isFirstLoad: false, emailContent: updatedEmailValue, isValidEmail: isValide });
+    const isValid = validateEmail(updatedEmailValue);
+    this.setState({ isFirstLoad: false, emailContent: updatedEmailValue, isValidEmail: isValid });
   };
 
   passwordValidation = event => {
     const updatedPasswordValue = event.target.value;
     const passwordConfirmationValue = this.state.passwordConfirmationContent;
-    const isValide = validatePassword(updatedPasswordValue);
+    const isValid = validatePassword(updatedPasswordValue);
     this.setState({
       isFirstLoad: false,
       isFirstPasswordLoad: false,
       passwordContent: updatedPasswordValue,
-      isValidPassword: isValide
+      isValidPassword: isValid
     });
     updatedPasswordValue === passwordConfirmationValue
       ? this.setState({ isValidPasswordConfirmation: true })
