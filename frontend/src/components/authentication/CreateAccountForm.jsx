@@ -46,7 +46,9 @@ let SUBMIT_BTN_DISABLED;
 
 class CreateAccountForm extends Component {
   state = {
+    // Ensures no errors are shown on page load
     isFirstLoad: true,
+    // Form content and validation
     firstNameContent: "",
     isValidFirstName: false,
     lastNameContent: "",
@@ -153,14 +155,7 @@ class CreateAccountForm extends Component {
     } = this.state;
 
     const validFieldClass = "valid-field";
-    let invalidFieldClass = "";
-
-    //if this is the first load of create account form, display all fields as 'valid-field'
-    if (isFirstLoad) {
-      invalidFieldClass = "valid-field";
-    } else {
-      invalidFieldClass = "invalid-field";
-    }
+    const invalidFieldClass = "invalid-field";
 
     //check if all fields are valid
     this.areAllFieldsValid();
@@ -184,7 +179,9 @@ class CreateAccountForm extends Component {
 
                   <input
                     aria-label={LOCALIZE.authentication.createAccount.content.inputs.firstNameTitle}
-                    className={isValidFirstName ? validFieldClass : invalidFieldClass}
+                    className={
+                      isValidFirstName || isFirstLoad ? validFieldClass : invalidFieldClass
+                    }
                     type="text"
                     placeholder={
                       LOCALIZE.authentication.createAccount.content.inputs.firstNamePlaceholder
@@ -205,7 +202,7 @@ class CreateAccountForm extends Component {
                   )}
                   <input
                     aria-label={LOCALIZE.authentication.createAccount.content.inputs.lastNameTitle}
-                    className={isValidLastName ? validFieldClass : invalidFieldClass}
+                    className={isValidLastName || isFirstLoad ? validFieldClass : invalidFieldClass}
                     type="text"
                     placeholder={
                       LOCALIZE.authentication.createAccount.content.inputs.lastNamePlaceholder
@@ -225,7 +222,7 @@ class CreateAccountForm extends Component {
                 )}
                 <input
                   aria-label={LOCALIZE.authentication.createAccount.content.inputs.emailTitle}
-                  className={isValidEmail ? validFieldClass : invalidFieldClass}
+                  className={isValidEmail || isFirstLoad ? validFieldClass : invalidFieldClass}
                   type="text"
                   placeholder={
                     LOCALIZE.authentication.createAccount.content.inputs.emailPlaceholder
@@ -244,7 +241,7 @@ class CreateAccountForm extends Component {
                 )}
                 <input
                   aria-label={LOCALIZE.authentication.createAccount.content.inputs.passwordTitle}
-                  className={isValidPassword ? validFieldClass : invalidFieldClass}
+                  className={isValidPassword || isFirstLoad ? validFieldClass : invalidFieldClass}
                   type="password"
                   placeholder={
                     LOCALIZE.authentication.createAccount.content.inputs.passwordPlaceholder
@@ -303,7 +300,9 @@ class CreateAccountForm extends Component {
                   aria-label={
                     LOCALIZE.authentication.createAccount.content.inputs.passwordConfirmationTitle
                   }
-                  className={isValidPasswordConfirmation ? validFieldClass : invalidFieldClass}
+                  className={
+                    isValidPasswordConfirmation || isFirstLoad ? validFieldClass : invalidFieldClass
+                  }
                   type="password"
                   placeholder={
                     LOCALIZE.authentication.createAccount.content.inputs
