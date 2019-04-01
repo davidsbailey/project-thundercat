@@ -94,11 +94,9 @@ class CreateAccountForm extends Component {
       isFirstLoad: false,
       isFirstPasswordLoad: false,
       passwordContent: updatedPasswordValue,
-      isValidPassword: isValid
+      isValidPassword: isValid,
+      isValidPasswordConfirmation: updatedPasswordValue === passwordConfirmationValue
     });
-    updatedPasswordValue === passwordConfirmationValue
-      ? this.setState({ isValidPasswordConfirmation: true })
-      : this.setState({ isValidPasswordConfirmation: false });
   };
 
   passwordConfirmationValidation = event => {
@@ -106,11 +104,9 @@ class CreateAccountForm extends Component {
     const passwordValue = this.state.passwordContent;
     this.setState({
       isFirstLoad: false,
-      passwordConfirmationContent: updatedPasswordConfirmationValue
+      passwordConfirmationContent: updatedPasswordConfirmationValue,
+      isValidPasswordConfirmation: updatedPasswordConfirmationValue === passwordValue
     });
-    updatedPasswordConfirmationValue === passwordValue
-      ? this.setState({ isValidPasswordConfirmation: true })
-      : this.setState({ isValidPasswordConfirmation: false });
   };
 
   render() {
